@@ -9,6 +9,7 @@ RUN apt-get update \
   && cd /usr/local/src \
   && git clone https://github.com/sipwise/rtpengine.git \
   && cd rtpengine/daemon \
+  && git checkout mr9.3.1.7 \
   && make && make install \
   && cp /usr/local/src/rtpengine/daemon/rtpengine /usr/local/bin/rtpengine \
   && rm -Rf /usr/local/src/rtpengine \

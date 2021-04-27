@@ -5,7 +5,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends ca-certificates gcc g++ make build-essential git iptables-dev libavfilter-dev \
   libevent-dev libpcap-dev libxmlrpc-core-c3-dev markdown \
   libjson-glib-dev default-libmysqlclient-dev libhiredis-dev libssl-dev \
-  libcurl4-openssl-dev libavcodec-extra gperf libspandsp-dev libwebsockets-dev\
+  libcurl4-openssl-dev libavcodec-extra gperf libspandsp-dev libwebsockets-dev curl \
   && cd /usr/local/src \
   && git clone https://github.com/sipwise/rtpengine.git \
   && cd rtpengine/daemon \
@@ -19,7 +19,7 @@ RUN apt-get update \
   && rm -rf /var/lib/cache/* \
   && rm -Rf /var/log/* \
   && rm -Rf /usr/local/src/* \
-  && rm -Rf /var/lib/apt/lists/* 
+  && rm -Rf /var/lib/apt/lists/*
 
 VOLUME ["/tmp"]
 

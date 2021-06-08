@@ -30,11 +30,9 @@ else
   MY_IP=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'`
 fi
 
-sed -i -e "s/MY_IP/$MY_IP/g" /etc/rtpengine.conf
-
 if [ "$1" = 'rtpengine' ]; then
   shift
-  exec rtpengine --config-file /etc/rtpengine.conf  "$@"
+  exec rtpengine --interface=$MY_IP --foreground --log-stderr --port-min=$MIN_PORT --port-max=$MAX_PORT --recording-dir=$RECORDING_DIR --recording-method=$RECORDING_METHOD --recording-format=$RECORDING_FORMAT --log-level=$LOG_LEVEL --delete-delay=$DELETE_DELAY --listen-http=$MY_IP:$HTTP_PORT "$@"
 fi
 
 exec "$@"

@@ -49,7 +49,7 @@ RUN apt-get update \
 
 VOLUME ["/tmp"]
 
-EXPOSE 23000-32768/udp 8080/tcp
+EXPOSE 8080/tcp
 
 ENV HTTP_PORT=8080
 ENV MIN_PORT=23000

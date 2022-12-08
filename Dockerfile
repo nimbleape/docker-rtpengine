@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-ARG RTPENGINE_VERSION=mr9.4.1.5
+ARG RTPENGINE_VERSION=mr11.1.1.3
 
 RUN apt-get update \
   && apt-get -y --quiet --force-yes upgrade curl iproute2 \

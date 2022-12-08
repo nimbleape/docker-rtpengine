@@ -28,7 +28,7 @@ LOCAL_IP=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1 
 
 if [ -n "$INTERFACE_LIST" ]; then
   MY_IP="$INTERFACE_LIST"
-else if [ -n "$PUBLIC_IP" ]; then
+elif [ -n "$PUBLIC_IP" ]; then
   MY_IP="$LOCAL_IP"!"$PUBLIC_IP"
 else
   MY_IP=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'`
